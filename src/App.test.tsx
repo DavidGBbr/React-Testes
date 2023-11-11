@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import App from "./App";
 
 function sum(n1: number, n2: number) {
@@ -32,6 +33,26 @@ describe("App component", () => {
     render(<App />);
 
     screen.getByText("React + Testes");
+  });
+
+  it("Should heading h1 have correct text", () => {
+    render(<App />);
+
+    const headingElement = screen.getByRole("heading", { level: 1 });
+    expect(headingElement).toHaveTextContent("React + Testes");
+    expect(headingElement).toHaveClass("titulo");
+  });
+
+  it("Should change message on button click", () => {
+    render(<App />);
+
+    const buttonElement = screen.getByText("Alterar mensagem");
+    fireEvent.click(buttonElement);
+
+    screen.getByText("Estudando testes com reactjs");
+
+    const oldMessage = screen.queryByText("Bem vindo ao projeto!");
+    expect(oldMessage).not.toBeInTheDocument();
   });
 });
 
