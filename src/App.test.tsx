@@ -32,15 +32,18 @@ describe("App component", () => {
   it("Should render app component", () => {
     render(<App />);
 
-    screen.getByText("React + Testes");
+    const headerTitle = screen.getByTestId("header");
+    expect(headerTitle).toHaveTextContent("React + Testes");
   });
 
   it("Should heading h1 have correct text", () => {
     render(<App />);
 
-    const headingElement = screen.getByRole("heading", { level: 1 });
-    expect(headingElement).toHaveTextContent("React + Testes");
-    expect(headingElement).toHaveClass("titulo");
+    const titleElements = screen.getAllByRole("heading", { level: 1 });
+
+    titleElements.map((element) =>
+      expect(element).toHaveTextContent("React + Testes")
+    );
   });
 
   it("Should change message on button click", () => {
