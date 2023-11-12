@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 import { Button } from ".";
 
 describe("Button component", () => {
@@ -21,11 +21,11 @@ describe("Button component", () => {
   it("Should render with gray background if disabled", () => {
     render(
       <Button onClick={() => {}} disabled={true}>
-        Meu botão
+        Clique aqui
       </Button>
     );
 
-    const button = screen.getByRole("button", { name: "Meu botão" });
+    const button = screen.getByRole("button", { name: "Clique aqui" });
     expect(button).toHaveStyle({ backgroundColor: "#fafafa" });
   });
 });

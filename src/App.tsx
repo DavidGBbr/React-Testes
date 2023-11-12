@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { Button } from "./Button";
+import { User } from "./User";
+import Form from "./Form";
 
 const App = () => {
   const [message, setMessage] = useState("Bem vindo ao projeto!");
@@ -17,9 +19,8 @@ const App = () => {
       <hr />
       <br />
 
-      <Button onClick={() => alert("Clicou")} disabled={true}>
-        Clique aqui
-      </Button>
+      <User />
+      <Form />
     </div>
   );
 };
