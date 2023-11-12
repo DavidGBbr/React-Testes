@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Button } from "./Button";
 
 const App = () => {
   const [message, setMessage] = useState("Bem vindo ao projeto!");
@@ -13,6 +14,12 @@ const App = () => {
       <button onClick={() => setMessage("Estudando testes com reactjs")}>
         Alterar mensagem
       </button>
+      <hr />
+      <br />
+
+      <Button onClick={() => alert("Clicou")} disabled={true}>
+        Clique aqui
+      </Button>
     </div>
   );
 };

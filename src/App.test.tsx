@@ -39,11 +39,9 @@ describe("App component", () => {
   it("Should heading h1 have correct text", () => {
     render(<App />);
 
-    const titleElements = screen.getAllByRole("heading", { level: 1 });
-
-    titleElements.map((element) =>
-      expect(element).toHaveTextContent("React + Testes")
-    );
+    const headingElement = screen.getByRole("heading", { level: 1 });
+    expect(headingElement).toHaveTextContent("React + Testes");
+    expect(headingElement).toHaveClass("titulo");
   });
 
   it("Should change message on button click", () => {
