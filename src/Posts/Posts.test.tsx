@@ -57,4 +57,16 @@ describe("Posts component", () => {
 
     expect(nameUser).toBeInTheDocument();
   });
+
+  it("Should fetch users when the component mount", async () => {
+    render(<Posts />);
+
+    const name = await screen.findByText("Leanne Graham");
+    const username = await screen.findByText("Bret");
+
+    expect(name).toBeInTheDocument();
+    expect(username).toBeInTheDocument();
+  });
 });
+
+export default {};

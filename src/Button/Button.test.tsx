@@ -29,3 +29,5 @@ describe("Button component", () => {
     expect(button).toHaveStyle({ backgroundColor: "#fafafa" });
   });
 });
+
+export default {};

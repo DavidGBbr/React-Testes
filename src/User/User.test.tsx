@@ -33,3 +33,5 @@ describe("User component", () => {
     expect(message).toBeInTheDocument();
   });
 });
+
+export default {};

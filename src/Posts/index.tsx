@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface UsersProps {
   id: number;
@@ -10,6 +10,16 @@ interface UsersProps {
 
 const Posts = () => {
   const [users, setUsers] = useState<UsersProps[]>([]);
+
+  useEffect(() => {
+    async function loadUsers() {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUsers(response.data);
+    }
+    loadUsers();
+  }, []);
 
   async function handleGetUsers() {
     const response = await axios.get(

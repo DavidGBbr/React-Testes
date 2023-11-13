@@ -28,3 +28,5 @@ describe("Form component", () => {
     expect(emailInput.value).toBe("");
   });
 });
+
+export default {};
