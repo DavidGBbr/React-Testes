@@ -3,6 +3,7 @@ import "./App.css";
 import { Button } from "./Button";
 import { User } from "./User";
 import Form from "./Form";
+import Posts from "./Posts";
 
 const App = () => {
   const [message, setMessage] = useState("Bem vindo ao projeto!");
@@ -21,6 +22,7 @@ const App = () => {
 
       <User />
       <Form />
+      <Posts />
     </div>
   );
 };
